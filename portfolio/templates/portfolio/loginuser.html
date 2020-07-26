@@ -1,0 +1,33 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<h2>{{ error }}</h2>
+
+<form method="POST">
+  {% csrf_token %}
+  <div class="loginuser">
+    <h5 class="sighupform">{{ form.username.label }}</h5>
+    {{ form.username }}
+
+    <h5 class="sighupform">{{ form.password.label }}</h5>
+    {{ form.password }}
+
+<br>
+
+    <button class="btn btn-outline-secondary" type="submit">Login</button>
+  </div>
+</form>
+
+<!-- <form class="box" action="index.html" method="POST">
+  <h1>Login</h1>
+  <input type="text" name="" placeholder="Username">
+  <input type="password" name="" placeholder="Password">
+  <input type="submit" name="" value="Login">
+</form> -->
+
+{% endblock %}

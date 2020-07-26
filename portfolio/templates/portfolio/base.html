@@ -1,0 +1,144 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- icons -->
+  <script src="https://kit.fontawesome.com/15e65cbd7c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="{% static 'portfolio/base.js' %}"></script>
+  <link rel="stylesheet" href="{% static "portfolio/base.css" %}">
+
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="{% static "portfolio/Logo.png" %}">
+
+  <title>tarikkus</title>
+
+</head>
+
+<body>
+
+<header class="header" id="header">
+  <div class="login">
+  {% if user.is_authenticated %}
+    <h5 class="logged">Logged in as <b><em>{{ user.username }}</em></b></h5>
+    <form action="{% url 'logoutuser' %}" method="post">
+        {% csrf_token %}
+      <button type="submit" class="b">Logout</button>
+    </form>
+  {% else %}
+      <a role="button" href="{% url 'signupuser' %}">Sign Up</a>
+      <a role="button" href="{% url 'loginuser' %}">Login</a>
+  {% endif %}
+  </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <div class="logoph">
+          <a href="{% url 'home' %}">
+            <img class="photologo" width="100" height="100" src="{% static "portfolio/Logo.png" %}" alt="Taras's Logo">
+          </a>
+        </div>
+        <div class="logo">
+          <a href="{% url 'home' %}">
+            <!-- <img src="{% static "portfolio/Logo.png" %}" width="50" height="50" alt="Taras's Logo"> -->
+            <span id="t">Taras Kutsiaba</span>
+          </a>
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+        </div>
+
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupported" aria-controls="navbarSupported" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupported">
+          <div class="nav" id="nav">
+            <ul class="menu navbar-nav mr-auto">
+              <li>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li>
+                <a class="nav-link" href="{% url 'presets' %}">Presets</a>
+              </li>
+              <li>
+                <a class="nav-link" href="{% static "portfolio/Resume.pdf" %}" target="_blank">Resume</a>
+              </li>
+              <li>
+                <a role="button" class="nav-link" href="{% url 'blog:all_blogs' %}">Blog</a>
+              </li>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+            </ul>
+          </div>
+        </div>
+
+
+
+      </div>
+    </nav>
+
+  </div>
+
+
+  <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a> -->
+
+</header>
+
+
+
+
+<!-- ця кнопка не працює, до неї є ще css та js - ЗРОБИТИ!
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+-->
+
+   <div class="other">
+
+    {% block content %}{% endblock %}
+
+
+  </div>
+
+<footer>
+        <div class="footer">
+          <a class="fb-ic" href="https://www.instagram.com/tarikkus/?hl=uk" target="_blank">
+            <i class="fab fa-instagram" style="color:black;"></i>
+          </a>
+          <a class="fb-ic" href="https://www.facebook.com/taras.kutsyaba.7" target="_blank">
+            <i class="fab fa-facebook" style="color:black;"></i>
+          </a>
+          <a class="fb-ic" href="https://github.com/tarikkus-lviv" target="_blank">
+            <i class="fab fa-github" style="color:black;"></i>
+          </a>
+          <a class="fb-ic" href="https://www.linkedin.com/in/taras-kutsiaba-709807144/" target="_blank">
+            <i class="fab fa-linkedin" style="color:black;"></i>
+          </a>
+        </div>
+</footer>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

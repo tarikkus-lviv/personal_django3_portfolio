@@ -1,0 +1,32 @@
+ {% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>Sign Up</h1>
+
+<h2>{{ error }}</h2>
+
+<form method="POST">
+  {% csrf_token %}
+    <div class="signup">
+      <h5 class="sighupform">Username</h5>
+      {{ form.username }}
+
+      <h5 class="sighupform">Email address</h5>
+      {{ form.email }}
+
+      <h5 class="sighupform">Password</h5>
+      {{ form.password1 }}
+
+      <h5 class="sighupform">Password confirmation</h5>
+      {{ form.password2 }}
+
+<br>
+
+      <button class="btn btn-outline-secondary" type="submit">Register Account</button>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="presets">
+
+  <h5 class="preset_name">Kodak Portra 400</h5>
+  <div class="preset">
+      <img class="preset_img" src="{% static 'images/presets/DSC05563-2.jpg' %}">
+      <img class="preset_img" src="{% static 'images/presets/DSC05563.jpg' %}">
+  </div>
+  {% if user.is_authenticated %}
+    <a class="download_link" href="{% static 'presets/site_1.lrtemplate' %}" download>Download</a>
+  {% else %}
+    <p class="download_link">Login to download</p>
+  {% endif %}
+
+
+  <h5 class="preset_name">Kodak Gold 200</h5>
+  <div class="preset">
+      <img class="preset_img" src="{% static 'images/presets/DSC05487-2.jpg' %}">
+      <img class="preset_img" src="{% static 'images/presets/DSC05487.jpg' %}">
+  </div>
+  {% if user.is_authenticated %}
+    <a class="download_link" href="{% static 'presets/site_2.lrtemplate' %}" download>Download</a>
+  {% else %}
+    <p class="download_link">Login to download</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}

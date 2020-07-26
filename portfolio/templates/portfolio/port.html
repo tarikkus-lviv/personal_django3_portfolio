@@ -1,0 +1,35 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{{ project.title }}
+
+<!-- <section class="gallery">
+  <div class="container">
+    <div class="gallery_grid">
+      <div class="row align-items-start">
+        <div class="col-xs-12 col-md-12">
+            {% for image in images %}
+            <img class="bootstrapimg" src='/static/images/{{ image }}'>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  <!-- <div class="ro"> -->
+    <div class="col">
+        {% for image in images %}
+          <div class="coli"><img src='/static/images/{{ image }}'></div>
+        {% endfor %}
+    </div>
+  <!-- </div> -->
+
+
+
+
+
+{% endblock %}
