@@ -135,5 +135,10 @@ STATICFILES_FINDERS = (
 'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file. You must be on production")
+
 # i still need to google how to use css with this form!
 # CRISPY_TEMPLATE_PACK='uni-form'
