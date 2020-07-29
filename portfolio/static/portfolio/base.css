@@ -244,7 +244,7 @@ hr{
 }
 
 .coli {
-  box-flex:auto;
+  /* box-flex: auto; */
   flex:auto;
   width:350px;
   margin: .5vw;

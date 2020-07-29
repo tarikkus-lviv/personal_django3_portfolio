@@ -26,7 +26,6 @@ def port(request, projects_id):
     project = get_object_or_404(Project, pk=projects_id)
     images = os.listdir(Path(f"{settings.STATIC_ROOT}/images/{project.title}"))
     images = [f"{project.title}/{image}" for image in images]
-    print(type(images))
     return render (request, 'portfolio/port.html', {'project': project, 'images': images})
 
 def presets(request):
