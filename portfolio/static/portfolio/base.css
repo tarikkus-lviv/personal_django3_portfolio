@@ -234,23 +234,41 @@ hr{
 
 /* photo gallery from port.html */
 
-.col {
+.col{
+  width: 1300px;
   margin: .5vw;
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  flex-flow: row wrap;
+  columns: 4;
+  column-gap: 5px;
 }
 
-.coli {
-  /* box-flex: auto; */
-  flex:auto;
-  width:350px;
-  margin: .5vw;
+.coli{
+  width: 100%;
+  margin: 0 0 5px;
+  padding: 1px;
+  background: #fff;
+  overflow: hidden;
 }
 
 .coli img{
-  width: 100%;
-  height:auto;
+  max-width: 100%;
+}
+
+@media (max-width: 1300px){
+  .col{
+    columns: 3;
+    width: calc(100%-40px);
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px){
+  .col{
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px){
+  .col{
+    columns: 1;
+  }
 }
