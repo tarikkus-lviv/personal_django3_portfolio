@@ -4,13 +4,16 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
+from django.core.mail import send_mail
 import os
 from os.path import isfile,join
 
 from personal_portfolio import settings
 from pathlib import Path
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, ContactForm
+
+
 
 #у функції home, рядок projects = .... , це ми дістаємо доступ до усіх наших обєктів у DB і тепер зможемо їх показувати на нашій сторінці сайту, у рядку return... ,
 #ми передаємо інформацію у наш template, тобто інформацію із DB, щоб її було видно на самому сайті.
@@ -36,7 +39,33 @@ def presets(request):
 #     return render (request, {'presets': presets})
 
 def about(request):
-    return render(request, 'portfolio/about.html')
+    name=''
+    email=''
+    comment=''
+
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        name= form.cleaned_data.get("name")
+        email= form.cleaned_data.get("email")
+        comment=form.cleaned_data.get("comment")
+
+        if request.user.is_authenticated:
+            subject = str(request.user) + "'s Comment"
+        else:
+            subject = "A Visitor's Comment"
+
+        comment = name + " with the email, " + email + ", sent the following message:\n\n" + comment;
+        send_mail(subject, comment, 'tarikkus24@gmail.com', [email])
+
+        context= {'form': form}
+
+        return render(request, 'portfolio/about.html', context)
+
+    else:
+        context= {'form': form}
+        return render(request, 'portfolio/about.html', context)
+
+    # return render(request, 'portfolio/about.html')
 
 def signupuser(request):
     if request.method == 'GET':

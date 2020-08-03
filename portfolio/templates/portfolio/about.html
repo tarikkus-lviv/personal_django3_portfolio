@@ -9,9 +9,18 @@
   <div class="">
       <img class="photoabout" src="{% static 'portfolio/DSC05415.jpg' %}">
   </div>
-    <div>
-      <h1 class="abouttext">HELLO, I'M TARAS AND I BUILT MY PHOTOGRAPHY PORTFOLIO TO USE IT AS MY WEB DEVELOPEMENT PORTFOLIO</h1>
+  <div>
+    <h1 class="abouttext">HELLO, I'M TARAS AND I BUILT MY PHOTOGRAPHY PORTFOLIO TO USE IT AS MY WEB DEVELOPEMENT PORTFOLIO</h1>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="">
+      <h5>Contac me</h5>
+      {{ form.as_p }}
+        <button class="btn btn-outline-secondary" type="submit"> Send Message</button>
     </div>
+  </form>
 </div>
 
 
