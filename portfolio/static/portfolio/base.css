@@ -54,6 +54,17 @@ h5.sighupform{
   justify-content: center;
 }
 
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h5.contactform{
+  padding: 4px;
+}
+
 .preset{
   display: flex;
   justify-content:space-around;
@@ -117,7 +128,7 @@ a.active {
 }
 
 .fb-ic{
-  padding: 0;
+  padding: 0 10px 0 0;
 }
 
 .other{
@@ -271,4 +282,13 @@ hr{
   .col{
     columns: 1;
   }
+}
+
+.messageinput {
+  float: left;
+  width: 100%;
+  min-height: 10px;
+  outline: none;
+  resize: none;
+  border: 1px solid grey;
 }
