@@ -55,11 +55,13 @@ def about(request):
             subject = "A Visitor's Comment"
 
         comment = name + " with the email, " + email + ", sent the following message:\n\n" + comment;
-        send_mail(subject, comment, 'tarikkus24@gmail.com', [email])
+        send_mail(subject, comment, "tarikkus24@gmail.com", ["tarikkus24@gmail.com"])
+        print("Email sent")
 
         context= {'form': form}
 
         return render(request, 'portfolio/about.html', context)
+        print("Email sent!!!")
 
     else:
         context= {'form': form}
