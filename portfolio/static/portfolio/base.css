@@ -284,17 +284,26 @@ hr{
   }
 }
 
-.messageinput {
-  float: left;
-  width: 100%;
-  min-height: 10px;
-  outline: none;
-  resize: none;
-  border: 1px solid grey;
+.commentform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+#id_comment{
+
+}
+
+
 @media (max-width: 480px){
-  .commentform{
-    width: 200px;
+  #id_comment{
+    width: 350px;
+  }
+}
+
+@media (max-width: 350px){
+  #id_comment{
+    width: 250px;
   }
 }
