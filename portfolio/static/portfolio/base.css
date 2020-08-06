@@ -292,3 +292,9 @@ hr{
   resize: none;
   border: 1px solid grey;
 }
+
+@media (max-width: 480px){
+  .commentform{
+    width: 200px;
+  }
+}

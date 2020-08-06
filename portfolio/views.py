@@ -61,7 +61,6 @@ def about(request):
         context= {'form': form}
 
         return render(request, 'portfolio/about.html', context)
-        print("Email sent!!!")
 
     else:
         context= {'form': form}
